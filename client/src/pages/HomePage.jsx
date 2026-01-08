@@ -228,6 +228,10 @@ const HomePage = () => {
             <span className="logo-icon">✦</span>
             <span>Colinq</span>
           </div>
+          <nav className="footer-links">
+            <Link to="/terms">Terms of Service</Link>
+            <Link to="/privacy">Privacy Policy</Link>
+          </nav>
           <p className="footer-copy">© {new Date().getFullYear()} Colinq. All rights reserved.</p>
         </div>
       </footer>

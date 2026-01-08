@@ -19,6 +19,8 @@ import ConversationPage from './pages/ConversationPage';
 import CollaborationsListPage from './pages/CollaborationsListPage';
 import CollaborationPage from './pages/CollaborationPage';
 import SavedPage from './pages/SavedPage';
+import TermsPage from './pages/TermsPage';
+import PrivacyPage from './pages/PrivacyPage';
 
 // Admin Pages
 import AdminLayout from './pages/admin/AdminLayout';
@@ -72,6 +74,8 @@ const AppRoutes = () => (
     <Route path="/" element={<HomePage />} />
     <Route path="/sign-in/*" element={<SignInPage />} />
     <Route path="/sign-up/*" element={<SignUpPage />} />
+    <Route path="/terms" element={<TermsPage />} />
+    <Route path="/privacy" element={<PrivacyPage />} />
     
     {/* Protected routes */}
     <Route 
