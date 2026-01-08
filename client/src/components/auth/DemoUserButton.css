@@ -1,0 +1,156 @@
+/* ========================================
+   DEMO USER BUTTON - Contra-inspired Design
+   ======================================== */
+
+.demo-user-button {
+  position: relative;
+}
+
+.demo-avatar-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-fast);
+}
+
+.demo-avatar-btn:hover {
+  transform: scale(1.02);
+}
+
+.demo-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  border: 2px solid var(--border-light);
+  transition: border-color var(--transition-fast);
+}
+
+.demo-avatar-btn:hover .demo-avatar {
+  border-color: var(--border-medium);
+}
+
+/* ========================================
+   DROPDOWN MENU
+   ======================================== */
+.demo-user-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 280px;
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--border-light);
+  z-index: 1000;
+  overflow: hidden;
+  animation: menuFadeIn var(--transition-base) ease-out;
+}
+
+@keyframes menuFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   USER INFO SECTION
+   ======================================== */
+.demo-user-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--bg-page);
+}
+
+.demo-avatar-large {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  border: 2px solid var(--bg-card);
+  box-shadow: var(--shadow-sm);
+}
+
+.demo-user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.demo-user-name {
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+}
+
+.demo-user-email {
+  color: var(--text-tertiary);
+  font-size: var(--font-size-xs);
+}
+
+/* ========================================
+   MENU ITEMS
+   ======================================== */
+.demo-menu-divider {
+  height: 1px;
+  background: var(--border-light);
+  margin: var(--space-1) 0;
+}
+
+.demo-menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border: none;
+  background: none;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  text-align: left;
+  text-decoration: none;
+}
+
+.demo-menu-item:hover {
+  background: var(--bg-hover);
+}
+
+.demo-menu-item.demo-signout {
+  color: var(--text-secondary);
+}
+
+.demo-menu-item.demo-signout:hover {
+  background: var(--error-light);
+  color: var(--error);
+}
+
+/* ========================================
+   DEMO BADGE
+   ======================================== */
+.demo-badge {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-hover);
+  border-top: 1px solid var(--border-light);
+}
+
+.demo-badge span {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}

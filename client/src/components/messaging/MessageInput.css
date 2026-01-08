@@ -1,0 +1,91 @@
+/* ========================================
+   MESSAGE INPUT - Contra-inspired Design
+   ======================================== */
+
+.message-input {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-light);
+}
+
+.message-input textarea {
+  flex: 1;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  font-size: var(--font-size-base);
+  font-family: inherit;
+  color: var(--text-primary);
+  resize: none;
+  max-height: 120px;
+  line-height: var(--line-height-normal);
+  transition: all var(--transition-fast);
+  background: var(--bg-card);
+}
+
+.message-input textarea:hover {
+  border-color: var(--border-medium);
+}
+
+.message-input textarea:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.08);
+}
+
+.message-input textarea::placeholder {
+  color: var(--text-tertiary);
+}
+
+.message-input textarea:disabled {
+  background: var(--bg-hover);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ========================================
+   SEND BUTTON
+   ======================================== */
+.send-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: var(--primary);
+  color: var(--text-inverse);
+  font-size: var(--font-size-lg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-base);
+  flex-shrink: 0;
+}
+
+.send-btn:hover:not(:disabled) {
+  background: var(--primary-hover);
+  transform: scale(1.05);
+}
+
+.send-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.send-btn:disabled {
+  background: var(--bg-hover);
+  color: var(--text-tertiary);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ========================================
+   SAFE AREA (Mobile)
+   ======================================== */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .message-input {
+    padding-bottom: calc(var(--space-4) + env(safe-area-inset-bottom));
+  }
+}

@@ -1,0 +1,140 @@
+/* ========================================
+   MESSAGE THREAD - Contra-inspired Design
+   ======================================== */
+
+.message-thread {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  background: var(--bg-page);
+}
+
+.message-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* ========================================
+   DATE DIVIDER
+   ======================================== */
+.date-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--space-4) 0;
+}
+
+.date-divider span {
+  background: var(--bg-card);
+  color: var(--text-tertiary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ========================================
+   MESSAGE
+   ======================================== */
+.message {
+  display: flex;
+  flex-direction: column;
+  max-width: 70%;
+  animation: fadeIn var(--transition-base);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message.mine {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+.message.theirs {
+  align-self: flex-start;
+  align-items: flex-start;
+}
+
+/* ========================================
+   MESSAGE BUBBLE
+   ======================================== */
+.message-bubble {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-xl);
+  word-wrap: break-word;
+}
+
+.message.mine .message-bubble {
+  background: var(--primary);
+  color: var(--text-inverse);
+  border-bottom-right-radius: var(--radius-sm);
+}
+
+.message.theirs .message-bubble {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border-bottom-left-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.message-bubble p {
+  margin: 0;
+  line-height: var(--line-height-normal);
+  white-space: pre-wrap;
+  font-size: var(--font-size-sm);
+}
+
+/* ========================================
+   COLLABORATION BADGE
+   ======================================== */
+.collab-proposal-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-2);
+  display: inline-block;
+}
+
+.message.theirs .collab-proposal-badge {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+/* ========================================
+   MESSAGE TIME
+   ======================================== */
+.message-time {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  margin-top: var(--space-1);
+  padding: 0 var(--space-1);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 640px) {
+  .message {
+    max-width: 85%;
+  }
+
+  .message-bubble {
+    padding: var(--space-2) var(--space-3);
+  }
+}
