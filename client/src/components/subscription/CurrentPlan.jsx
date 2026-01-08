@@ -118,3 +118,5 @@ const CurrentPlan = ({ subscription, usage, onManage, onUpgrade }) => {
 
 export default CurrentPlan;
 
+
+

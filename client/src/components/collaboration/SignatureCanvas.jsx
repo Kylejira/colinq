@@ -142,3 +142,5 @@ const SignatureCanvas = ({ onSign, onCancel, disabled }) => {
 
 export default SignatureCanvas;
 
+
+

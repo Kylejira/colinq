@@ -6,6 +6,7 @@ import MessageThread from '../components/messaging/MessageThread';
 import MessageInput from '../components/messaging/MessageInput';
 import MessageTemplates from '../components/messaging/MessageTemplates';
 import CollabTypeSelector from '../components/messaging/CollabTypeSelector';
+import analytics from '../utils/analytics';
 import './ConversationPage.css';
 
 const ConversationPage = () => {
@@ -73,6 +74,12 @@ const ConversationPage = () => {
       );
       setMessages(prev => [...prev, newMessage]);
       setSelectedCollabType(null);
+      
+      // Track message sent
+      analytics.messageSent();
+      if (messages.length === 0) {
+        analytics.conversationStarted(matchId);
+      }
     } catch (err) {
       if (err.message.includes('Monthly message limit')) {
         setSendError({

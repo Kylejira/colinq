@@ -178,3 +178,5 @@ const ContractGenerator = ({ collaborationId, onContractCreated, onCancel }) => 
 
 export default ContractGenerator;
 
+
+

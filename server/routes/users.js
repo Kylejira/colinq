@@ -17,3 +17,5 @@ router.get('/profile/status', requireAuth, userController.checkProfileComplete);
 
 module.exports = router;
 
+
+

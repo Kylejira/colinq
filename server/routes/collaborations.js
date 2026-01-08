@@ -32,3 +32,5 @@ router.patch('/:id/status', requireAuth, collaborationController.updateStatus);
 
 module.exports = router;
 
+
+

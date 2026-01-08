@@ -144,3 +144,5 @@ const CollaborationChecklist = ({ checklist = [], onUpdate, disabled }) => {
 
 export default CollaborationChecklist;
 
+
+

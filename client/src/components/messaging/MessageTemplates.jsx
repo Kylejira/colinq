@@ -60,3 +60,5 @@ const MessageTemplates = ({ onSelect, onClose }) => {
 
 export default MessageTemplates;
 
+
+

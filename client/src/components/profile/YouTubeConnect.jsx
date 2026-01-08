@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useAuthContext } from '../../context/AuthContext';
 import { authApi } from '../../services/api';
+import analytics from '../../utils/analytics';
 import './YouTubeConnect.css';
 
 const YouTubeConnect = ({ onConnected }) => {
@@ -16,12 +17,18 @@ const YouTubeConnect = ({ onConnected }) => {
     setError(null);
 
     try {
+      analytics.youtubeConnected();
       const { authUrl } = await authApi.getYouTubeAuthUrl(getToken);
       window.location.href = authUrl;
     } catch (err) {
       setError(err.message);
       setLoading(false);
     }
+  };
+
+  const handleSkip = () => {
+    analytics.youtubeSkipped();
+    if (onConnected) onConnected();
   };
 
   if (youtubeConnected && youtubePlatform) {
@@ -111,7 +118,7 @@ const YouTubeConnect = ({ onConnected }) => {
       {onConnected && (
         <button 
           className="skip-btn" 
-          onClick={onConnected}
+          onClick={handleSkip}
           type="button"
         >
           Skip for now →

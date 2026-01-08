@@ -110,3 +110,5 @@ const FilterPanel = ({ filters, onFilterChange, onClose }) => {
 
 export default FilterPanel;
 
+
+

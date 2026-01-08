@@ -48,3 +48,5 @@ const MessageInput = ({ onSend, disabled, placeholder }) => {
 
 export default MessageInput;
 
+
+

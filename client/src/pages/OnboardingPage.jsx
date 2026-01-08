@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuthContext } from '../context/AuthContext';
 import ProfileForm from '../components/profile/ProfileForm';
 import YouTubeConnect from '../components/profile/YouTubeConnect';
 import VerificationUpload from '../components/profile/VerificationUpload';
+import analytics from '../utils/analytics';
 import './OnboardingPage.css';
 
 const STEPS = ['profile', 'youtube', 'verification'];
@@ -27,6 +28,15 @@ const OnboardingPage = () => {
     }
   }, [searchParams, refreshUser]);
 
+  // Track onboarding started
+  const hasTrackedStart = useRef(false);
+  useEffect(() => {
+    if (isLoaded && user && !hasTrackedStart.current) {
+      analytics.onboardingStarted();
+      hasTrackedStart.current = true;
+    }
+  }, [isLoaded, user]);
+
   // Determine starting step based on profile completion
   useEffect(() => {
     if (isLoaded && user) {
@@ -47,6 +57,8 @@ const OnboardingPage = () => {
     if (currentStep < STEPS.length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
+      // Track onboarding completed
+      analytics.onboardingCompleted();
       navigate('/discover');
     }
   };

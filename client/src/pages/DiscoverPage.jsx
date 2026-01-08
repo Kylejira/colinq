@@ -7,6 +7,7 @@ import SwipeActions from '../components/discovery/SwipeActions';
 import MatchModal from '../components/discovery/MatchModal';
 import FilterPanel from '../components/discovery/FilterPanel';
 import DemoUserButton from '../components/auth/DemoUserButton';
+import analytics from '../utils/analytics';
 import './DiscoverPage.css';
 
 const DiscoverPage = () => {
@@ -58,6 +59,15 @@ const DiscoverPage = () => {
     const currentProfile = profiles[currentIndex];
     setSwiping(true);
 
+    // Track the swipe action
+    if (action === 'like') {
+      analytics.profileLiked(currentProfile.id);
+    } else if (action === 'pass') {
+      analytics.profilePassed(currentProfile.id);
+    } else if (action === 'save') {
+      analytics.profileSaved(currentProfile.id);
+    }
+
     try {
       const result = await swipesApi.createSwipe({
         targetId: currentProfile.id,
@@ -65,6 +75,7 @@ const DiscoverPage = () => {
       }, getToken);
 
       if (result.match) {
+        analytics.matchCreated(result.match.id);
         setMatch(result.match);
       }
 

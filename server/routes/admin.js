@@ -30,3 +30,5 @@ router.get('/activity', adminController.getActivityLog);
 
 module.exports = router;
 
+
+

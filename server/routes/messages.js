@@ -20,3 +20,5 @@ router.patch('/:matchId/read', requireAuth, messageController.markAsRead);
 
 module.exports = router;
 
+
+
