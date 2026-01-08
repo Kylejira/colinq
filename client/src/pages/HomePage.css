@@ -126,8 +126,11 @@
   background: var(--bg-card);
 }
 
-.nav-mobile.open {
-  display: flex;
+/* Mobile menu only shows on mobile screens */
+@media (max-width: 768px) {
+  .nav-mobile.open {
+    display: flex;
+  }
 }
 
 .nav-mobile .nav-link {
