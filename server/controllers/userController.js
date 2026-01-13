@@ -47,6 +47,11 @@ const updateProfile = async (req, res) => {
       collaborationInterests,
       audienceDemographics,
       preferences,
+      niche,
+      tiktokHandle,
+      tiktokFollowers,
+      instagramHandle,
+      instagramFollowers,
     } = req.body;
 
     const result = await db.query(
@@ -58,6 +63,11 @@ const updateProfile = async (req, res) => {
         collaboration_interests = COALESCE($6, collaboration_interests),
         audience_demographics = COALESCE($7, audience_demographics),
         preferences = COALESCE($8, preferences),
+        niche = COALESCE($9, niche),
+        tiktok_handle = COALESCE($10, tiktok_handle),
+        tiktok_followers = COALESCE($11, tiktok_followers),
+        instagram_handle = COALESCE($12, instagram_handle),
+        instagram_followers = COALESCE($13, instagram_followers),
         updated_at = NOW()
        WHERE clerk_id = $1
        RETURNING *`,
@@ -70,6 +80,11 @@ const updateProfile = async (req, res) => {
         collaborationInterests,
         audienceDemographics ? JSON.stringify(audienceDemographics) : null,
         preferences ? JSON.stringify(preferences) : null,
+        niche || null,
+        tiktokHandle || null,
+        tiktokFollowers ? parseInt(tiktokFollowers) : null,
+        instagramHandle || null,
+        instagramFollowers ? parseInt(instagramFollowers) : null,
       ]
     );
 
